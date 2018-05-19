@@ -13,7 +13,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::check())
-                    <li><a href></a></li>
+                    <li><a href>{{Auth::user()->name}}</a></li>
                     <li>{!! link_to_route('logout.get', 'ログアウト') !!}</li>
                     @else
                     <li>{!! link_to_route('signup.get', '新規登録') !!}</li>

@@ -4,7 +4,7 @@
 
     <h1>タスク一覧</h1>
 
-    @if (count($tasks) > 0)
+    @if ($tasks)
         <table class="table table-striped">
             @foreach ($tasks as $task)
             <tr>
@@ -18,11 +18,14 @@
                 </td>
             </tr>
             @endforeach
-            
         </table>
-        
     @endif
+    {!! Form::model($newtask, ['route' => 'tasks.store']) !!}
+        <div class="form-group">
+        {!! Form::text('content', null, ['class' => 'form-control', 'placeholder' => 'タスクを入力']) !!}
+        </div>
+        {!! Form::submit('追加',  ['class' => 'btn btn-success']) !!}
+    {!! Form::close() !!}
     
-    {!! link_to_route('tasks.create', 'タスク追加', null, ['class' => 'btn btn-default']) !!}
 
 @endsection

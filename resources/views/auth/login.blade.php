@@ -19,10 +19,14 @@
                     {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
                 
-                {!! Form::submit('Log in', ['class' => 'btn btn-primary btn-block']) !!}
+                <div class="form-group">
+                    {!! Form::submit('Log in', ['class' => 'btn btn-primary btn-block']) !!}
+                </div>
+                
             {!! Form::close() !!}
 
-            <p>または {!! link_to_route('signup.get', '会員登録') !!}</p>
+            <p class="text-center">または {!! link_to_route('signup.get', '会員登録') !!}</p>
         </div>
+        
     </div>
 @endsection

@@ -14,7 +14,13 @@
 Route::get('/','TasksController@index');
 
 Route::resource('tasks', 'TasksController');
+Route::resource('users', 'UsersController');
 
+Route::group(['middleware' => ['auth']], function () {
+   Route::resource('tasks', 'TasksController'); 
+   Route::resource('users', 'UsersController'); 
+   
+});
 
 // ユーザー登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
